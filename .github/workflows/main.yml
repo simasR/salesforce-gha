@@ -57,6 +57,9 @@ jobs:
 
     # A sequence of tasks that will be executed as part of the job
     steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v2
+      
       # Useful variables, these are just a few examples that I find useful when creating conditions for automated jobs!
       - name: Useful variables
         run: |
@@ -68,9 +71,6 @@ jobs:
           echo "Last commit log - $last_commit_log"
           export FIRSTWORDOFCOMMIT=$(echo "$last_commit_log" | awk '{print $1}')
           echo "Getting first word of commit from last commit message - $FIRSTWORDOFCOMMIT"
-
-      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - uses: actions/checkout@v2
 
       # Print all of the GITHUB context in the build
       - name: GITHUB CONTEXT
