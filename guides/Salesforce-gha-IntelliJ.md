@@ -18,13 +18,13 @@ First you will need to install few things that will be used to set everything up
 ### Create a dev org!
 Lets create a salesforce [developer org](https://developer.salesforce.com/signup) first.
 
-### Set up a Git repository.
+### Set up a Git repository
 If you dont already have a GitHub account Sign up [here](https://github.com/).
 - Create a new repository name it however you like, for example: salesforce-gha.
 - Select "Add a README file" checkbox
 - Click Create Repository
 
-### Clone git repository.
+### Clone git repository
 On your pc find a place where you want your projects to be stored.
 - For example, create a folder and name it MyProjects.
 - Open that folder
