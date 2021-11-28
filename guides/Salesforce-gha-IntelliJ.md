@@ -48,7 +48,7 @@ In IntelliJ
 
 - Go Tools -> Illuminated Cloud -> Configure Application...
 - Click Connections
-- Click earth icon ![IntelliJ OAuth](images\auth.png)
+- Click earth icon ![IntelliJ OAuth](https://github.com/simasR/salesforce-gha/blob/main/images/auth.png)
 
 Now we have your project connected to both Git and Salesforce!
 
