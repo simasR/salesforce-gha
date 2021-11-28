@@ -191,10 +191,13 @@ Now you project should be in your remote repository.
 - Click "Start Commit"
 - Click "Commit new file"
 
-This workflow will start an automatically:
-  - deployment validation on Pull Request to main branch.
-  - deployment on merge/directpush to your salesforce org. 
-  - it will use *manifest/package.xml* as a reference.
+This workflow will start an automatic:
+
+Deployment validation on Pull Request to main branch.
+
+Deployment on merge/directpush to your salesforce org. 
+
+It will use *manifest/package.xml* as a reference.
 
 ### Set Up secrets for your GitHub Actions
 
