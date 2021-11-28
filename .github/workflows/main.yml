@@ -60,16 +60,6 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
 
-      # Useful variables, these are just a few examples that I find useful when creating conditions for automated jobs!
-      - name: Useful variables
-        run: |
-          readonly local last_commit_log=$(git log -1 --pretty=format:"%b")
-          export FIRSTWORDOFCOMMIT=$(echo "$last_commit_log" | awk '{print $1}')
-          echo "$last_commit_log"
-          echo "$FIRSTWORDOFCOMMIT"
-          echo "Source branch - ${GITHUB_HEAD_REF}"
-          echo "Target branch - ${GITHUB_BASE_REF}"
-
       # Print all of the GITHUB context in the build
       - name: GITHUB CONTEXT
         env:
