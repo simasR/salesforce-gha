@@ -181,20 +181,16 @@ In Salesforce go to Setup
 
 In Visual Studio Code
 
-Create a new Apex Class in force-app/main/default/classes
-
-Name it DummyClass.cls
-Contents:
+Create a new Apex Class
+In VSC Bash terminal run this command:
 ```
-public class DummyClass {
-    //An empy class, YEP.
-    }
+sfdx force:apex:class:create -n DummyClass -d force-app/main/default/classes
 ```
-save.
+You will notice two new files in tour classes folder
 
 In your VSC Bash Terminal:
 ```
-git add force-app/main/default/classes/DummyClass.cls
+git add force-app/main/default/classes/
 git commit -m "My first Class deployment using GitHub Actions!"
 git push origin main
 ```

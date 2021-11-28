@@ -1,4 +1,5 @@
-public class DummyClass {
-//An empy class, YEP.
+public with sharing class DummyClass {
+    public DummyClass() {
 
+    }
 }
