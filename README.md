@@ -200,6 +200,15 @@ In Salesforce go to Setup
 
 In Visual Studio Code
 
+Since you created a workflow file in the remote repository you will need to get your local repository up-to-date
+
+In VSC Bash terminal run these commands:
+
+```
+git fetch
+git pull
+```
+
 Create a new Apex Class
 
 In VSC Bash terminal run this command:
