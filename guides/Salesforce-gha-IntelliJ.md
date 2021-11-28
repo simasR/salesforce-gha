@@ -44,6 +44,11 @@ Now you should have salesforce-gha (If thats how you named your repository) fold
 ```
 IN PROGRESS (To be udpated)
 ```
+In IntelliJ
+
+- Go Tools -> Illuminated Cloud -> Configure Application...
+- Click Connections
+- Click earth icon ![IntelliJ OAuth](images\auth.png)
 
 Now we have your project connected to both Git and Salesforce!
 
