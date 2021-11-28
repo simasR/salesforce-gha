@@ -241,3 +241,20 @@ In your Salesforce org
 - In quickfind box type Apex Classes
 - Click Apex Classes
 - You will see a newly deployd DummyClass!
+
+
+<META HTTP-EQUIV="Content-type" CONTENT="text/html; charset=UTF-8">
+<form action="https://webto.salesforce.com/servlet/servlet.WebToCase?encoding=UTF-8" method="POST">
+
+<input type=hidden name="orgid" value="00D7Q000000HbOf">
+<input type=hidden name="retURL" value="https://github.com/simasR/salesforce-gha">
+
+<label for="email">Email</label><input  id="email" maxlength="80" name="email" size="20" type="text" /><br>
+
+<label for="subject">Subject</label><input  id="subject" maxlength="80" name="subject" size="20" type="text" /><br>
+
+<label for="description">Description</label><textarea name="description"></textarea><br>
+
+<input type="submit" name="submit">
+
+</form>
