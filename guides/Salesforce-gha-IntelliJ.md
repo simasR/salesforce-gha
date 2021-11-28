@@ -41,14 +41,25 @@ Now you should have salesforce-gha (If thats how you named your repository) fold
 
 ### Create an sfdx project
 
-```
-IN PROGRESS (To be udpated)
-```
 In IntelliJ
 
 - Go Tools -> Illuminated Cloud -> Configure Application...
 - Click Connections
 - Click earth icon ![IntelliJ OAuth](https://github.com/simasR/salesforce-gha/blob/main/images/auth.png)
+  - Alias: MyDevOrg
+  - Organization Type: Development 
+- Browser will pop up
+- Log in to your dev org
+- Click Allow
+- Back to IntelliJ, click **Apply** to apply the connection
+
+- File -> New -> Project...
+- Select **"Illuminated Cloud SFDX"** 
+- Name your project anyway you like
+- Click Next
+- Next to **"Project location"** click the three dots "..."
+- Select root folder of your GitHub repository, in this example select folder **"salesforce-gha"**
+- Click Finish
 
 Now we have your project connected to both Git and Salesforce!
 
