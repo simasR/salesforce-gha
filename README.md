@@ -139,7 +139,8 @@ Restrict access through connected app to your org
 - Click Save
 
 **DELETE server.crt file from assets/ folder you will not need it anymore**
-assets folder should only contain server.key.enc file
+
+Assets folder should only contain server.key.enc file
 
 ### Create a GitHub Actions workflow! Finally!
 
