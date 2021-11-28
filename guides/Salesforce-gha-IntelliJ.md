@@ -78,7 +78,7 @@ In IntelliJ
 </p>
 </details>
 
-If no error occured - continue.
+*If no error occured - continue.*
 
 #### Embed bash terminal within your IntelliJ
 - Go File -> Settings

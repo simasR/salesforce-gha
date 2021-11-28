@@ -69,7 +69,7 @@ This will create a bunch of files in your repository root folder.
 </p>
 </details>
 
-If no error occured - continue.
+*If no error occured - continue.*
 
 #### Authorize your org
   - In terminal run this command:
