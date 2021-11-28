@@ -54,8 +54,9 @@ sfdx force:project:create --projectname salesforce-gha --manifest
 
 This will create a bunch of files in your repository root folder. 
 
-If you get this error: **Failed to create the Salesforce DX project: A name parameter is required to create a storage**\
-If no error occured - jump to [Authorize your org](https://github.com/simasR/salesforce-gha/blob/main/guides/Salesforce-gha-VSC.md#authorize-your-org)
+<details><summary>Click this if you get this error: **Failed to create the Salesforce DX project: A name parameter is required to create a storage**</summary>
+<p>
+
 - Create a package.json file with the content as below 
 ```
 {
@@ -64,6 +65,11 @@ If no error occured - jump to [Authorize your org](https://github.com/simasR/sal
 ```
 - Place it in **MyProjects** folder
 - This is known bug, more info [here](https://wipdeveloper.com/sfdx-create-project-error/).
+
+</p>
+</details>
+
+If no error occured continue.
 
 #### Authorize your org
   - In terminal run this command:
