@@ -37,12 +37,6 @@ Now you should have salesforce-gha (If thats how you named your repository) fold
 
 ### Create an sfdx project and Set up your Visual Studio Code (VSC)
 
-- Within your MyProjects **(NOT salesforce-gha!!!)** folder create a file called package.json containing:
-```
-{
-    "name": "yourProjectName"
-}
-```
 - Set up workspace in VSC: 
   - File -> Add folder to workspace...
   - select MyProjects folder
@@ -59,6 +53,16 @@ sfdx force:project:create --projectname salesforce-gha --manifest
 *If project name in this command is same as name of the repository folder, project will be created within your repository root folder, and **that is what we want.***
 
 This will create a bunch of files in your repository root folder. 
+
+If you get this error: **Failed to create the Salesforce DX project: A name parameter is required to create a storage**
+- Create a package.json file with the content as below 
+```
+{
+"name" : "GetRidOfNameParameterRequiredError"
+}
+```
+- Place it in **MyProjects** folder
+- This is known bug, more info [here](https://wipdeveloper.com/sfdx-create-project-error/).
 
 - Authorize your org
   - In terminal run this command:

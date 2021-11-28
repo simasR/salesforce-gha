@@ -63,6 +63,16 @@ In IntelliJ
 - Select root folder of your GitHub repository, in this example select folder **"salesforce-gha"**
 - Click Finish
 
+If you get this error: **Failed to create the Salesforce DX project: A name parameter is required to create a storage**
+- Create a package.json file with the content as below 
+```
+{
+"name" : "GetRidOfNameParameterRequiredError"
+}
+```
+- Re-create project.
+- This is known bug, more info [here](https://groups.google.com/a/illuminatedcloud.com/g/qanda/c/lmCCTv65bx0?pli=1).
+
 #### Embed bash terminal within your IntelliJ
 - Go File -> Settings
 - Select Tools -> Terminal
