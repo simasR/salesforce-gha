@@ -43,6 +43,7 @@ Now you should have salesforce-gha (If thats how you named your repository) fold
 
 In IntelliJ
 
+#### Set up connection
 - Go Tools -> Illuminated Cloud -> Configure Application...
 - Click Connections
 - Click earth icon ![IntelliJ OAuth](https://github.com/simasR/salesforce-gha/blob/main/images/auth.png)
@@ -53,6 +54,7 @@ In IntelliJ
 - Click Allow
 - Back to IntelliJ, click **Apply** to apply the connection
 
+#### Create project
 - File -> New -> Project...
 - Select **"Illuminated Cloud SFDX"** 
 - Name your project anyway you like
@@ -60,6 +62,14 @@ In IntelliJ
 - Next to **"Project location"** click the three dots "..."
 - Select root folder of your GitHub repository, in this example select folder **"salesforce-gha"**
 - Click Finish
+
+#### Embed bash terminal within your IntelliJ
+- Go File -> Settings
+- Select Tools -> Terminal
+  - Shell path: Find bash.exe (Mine got installed by default here: C:\Program Files\Git\bin\bash.exe)
+  - Tab Name: Bash
+- At the bottom of IntelliJ click Terminal
+  - If Terminal is not bash, close it and start a new terminal session
 
 Now we have your project connected to both Git and Salesforce!
 
