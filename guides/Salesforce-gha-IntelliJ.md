@@ -66,7 +66,7 @@ In IntelliJ
 <details><summary>Click this if you get this error: <b>Failed to create the Salesforce DX project: A name parameter is required to create a storage</b></summary>
 <p>
 
-- Create a package.json file with the content as below 
+- Create a package.json file in your project folder with the content as below.
 ```
 {
 "name" : "GetRidOfNameParameterRequiredError"
