@@ -226,6 +226,7 @@ git push origin main
 
 In your Browser (Git repository)
 - Top menu click Actions
+- Your Workflow is already running!
 - You will see "My first Class deployment using GitHub Actions!"
   - click on it
 - Click Depyment-On-Merge
