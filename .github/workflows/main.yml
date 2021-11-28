@@ -92,4 +92,4 @@ jobs:
           sfdx --version
           sfdx plugins --core
           sfdx force:auth:jwt:grant --instanceurl https://login.salesforce.com --clientid ${{ secrets.CONSUMER_KEY }} --jwtkeyfile assets/server.key --username ${{ secrets.SFDC_USERNAME }} --setdefaultdevhubusername
-          sfdx force:source:deploy -x ./manifest/package.xml -u SimasR@cicd.org -l $TESTLEVEL
+          sfdx force:source:deploy -x ./manifest/package.xml -u ${{ secrets.SFDC_USERNAME }} -l $TESTLEVEL
