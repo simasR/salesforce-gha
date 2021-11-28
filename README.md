@@ -100,13 +100,23 @@ Open up your bash terminal within VSC
 Make sure your terminal is in the root folder of your repository
 
 Run these commands:
-- openssl genrsa -des3 -passout pass:SomePassword -out assets/server.pass.key 2048
-  - Save this password somewhere, we will need it later!
-- openssl rsa -passin pass:SomePassword -in assets/server.pass.key -out assets/server.key
-- openssl enc -aes-256-cbc -md sha256 -salt -e -in assets/server.key -out assets/server.key.enc -k SomePassword -pbkdf2
-- openssl req -new -key assets/server.key -out assets/server.csr
+```
+openssl genrsa -des3 -passout pass:SomePassword -out assets/server.pass.key 2048
+```
+Save this password somewhere, we will need it later!
+```
+openssl rsa -passin pass:SomePassword -in assets/server.pass.key -out assets/server.key
+```
+```
+openssl enc -aes-256-cbc -md sha256 -salt -e -in assets/server.key -out assets/server.key.enc -k SomePassword -pbkdf2
+```
+```
+openssl req -new -key assets/server.key -out assets/server.csr
+```
 It will prompt you to fill in some information, Type in whatever you like, Challenge password and Optional Company name can be skipped.
-- openssl x509 -req -sha256 -days 365 -in assets/server.csr -signkey assets/server.key -out assets/server.crt
+```
+openssl x509 -req -sha256 -days 365 -in assets/server.csr -signkey assets/server.key -out assets/server.crt
+```
 Now you have a bunch of files, but you will need only two:
 - server.crt
 - server.key.enc
