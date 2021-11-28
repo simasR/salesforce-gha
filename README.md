@@ -32,10 +32,11 @@ On your pc find a place where you want your projects to be stored.
   - next to a URL there is copy button, click it.
 - Go back to the Bash Terminal you have just opened.
   - type in: git clone < paste that url >  (Don't include < and >)
-  
-Now you should have salesforce-gha(If thats how you named your repository) folder within your MyProjects folder.
+
+Now you should have salesforce-gha (If thats how you named your repository) folder within your MyProjects folder.
 
 ### Create an sfdx project and Set up your Visual Studio Code (VSC)
+
 - Within your MyProjects **(NOT salesforce-gha!!!)** folder create a file called package.json containing:
 ```
 {
@@ -56,6 +57,7 @@ Now you should have salesforce-gha(If thats how you named your repository) folde
 sfdx force:project:create --projectname salesforce-gha --manifest
 ```
 *If project name in this command is same as name of the repository folder, project will be created within your repository root folder, and **that is what we want.***
+
 This will create a bunch of files in your repository root folder. 
 
 - Authorize your org
