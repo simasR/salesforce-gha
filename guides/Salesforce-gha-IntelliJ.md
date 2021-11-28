@@ -5,7 +5,7 @@ In this example I will be using IntelliJ + Illuminated Cloud plugin as a choice 
 
 Illuminated Cloud is paid plugin, if you don't have it or don't plan to use it, refer to:
 
-[Step by step guide for setup using Visual Studio Code](/Salesforce-gha-VSC.md)
+[Step by step guide for setup using Visual Studio Code](https://github.com/simasR/salesforce-gha/blob/main/guides/Salesforce-gha-VSC.md)
 
 ## Preparations
 First you will need to install few things that will be used to set everything up.
