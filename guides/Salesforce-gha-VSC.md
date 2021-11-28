@@ -54,7 +54,7 @@ sfdx force:project:create --projectname salesforce-gha --manifest
 
 This will create a bunch of files in your repository root folder. 
 
-<details><summary>Click this if you get this error: **Failed to create the Salesforce DX project: A name parameter is required to create a storage**</summary>
+<details><summary>Click this if you get this error: <b>Failed to create the Salesforce DX project: A name parameter is required to create a storage</b></summary>
 <p>
 
 - Create a package.json file with the content as below 
@@ -69,7 +69,7 @@ This will create a bunch of files in your repository root folder.
 </p>
 </details>
 
-If no error occured continue.
+If no error occured - continue.
 
 #### Authorize your org
   - In terminal run this command:

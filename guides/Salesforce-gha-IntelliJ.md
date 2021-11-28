@@ -63,8 +63,9 @@ In IntelliJ
 - Select root folder of your GitHub repository, in this example select folder **"salesforce-gha"**
 - Click Finish
 
-If you get this error: **Failed to create the Salesforce DX project: A name parameter is required to create a storage**\
-If no error occured - jump to [Embed bash terminal within your IntelliJ](https://github.com/simasR/salesforce-gha/blob/main/guides/Salesforce-gha-IntelliJ.md#embed-bash-terminal-within-your-intellij)
+<details><summary>Click this if you get this error: <b>Failed to create the Salesforce DX project: A name parameter is required to create a storage</b></summary>
+<p>
+
 - Create a package.json file with the content as below 
 ```
 {
@@ -73,6 +74,11 @@ If no error occured - jump to [Embed bash terminal within your IntelliJ](https:/
 ```
 - Re-create project.
 - This is known bug, more info [here](https://groups.google.com/a/illuminatedcloud.com/g/qanda/c/lmCCTv65bx0?pli=1).
+
+</p>
+</details>
+
+If no error occured - continue.
 
 #### Embed bash terminal within your IntelliJ
 - Go File -> Settings
