@@ -1,0 +1,95 @@
+name: DEMO-CI
+
+# Controls when the action will run. Triggers the workflow on push or pull request
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  Validation-On-Pull-Req:
+    if: github.event_name == 'pull_request'
+    runs-on: ubuntu-latest
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+      # Prints out Source and Target branches
+      - name: Source branch and Target Branch
+        run: |
+          echo "Source branch - ${GITHUB_HEAD_REF}"
+          echo "Target branch - ${GITHUB_BASE_REF}"
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v2
+
+      # Decrypts Server Key
+      - name: Decrypt Server Key
+        run: |
+          openssl enc -aes-256-cbc -md sha256 -salt -d -in assets/server.key.enc -out assets/server.key -k ${{ secrets.ENCRYPTION_PASS }} -pbkdf2
+      # Installs Salesforce CLI
+      - name: Install Salesforce CLI
+        run: |
+          wget https://developer.salesforce.com/media/salesforce-cli/sfdx-linux-amd64.tar.xz
+          mkdir sfdx-cli
+          tar xJf sfdx-linux-amd64.tar.xz -C sfdx-cli --strip-components 1
+          ./sfdx-cli/install
+      # Runs a Validation script
+      - name: Deployment-Validation-run
+        run: |
+          export TESTLEVEL=NoTestRun
+          echo "TEST LEVEL SELECTED: $TESTLEVEL"
+          export SFDX_AUTOUPDATE_DISABLE=false
+          export SFDX_USE_GENERIC_UNIX_KEYCHAIN=true
+          export SFDX_DOMAIN_RETRY=600
+          export SFDX_DISABLE_APP_HUB=true
+          export SFDX_LOG_LEVEL=DEBUG
+
+          sfdx --version
+          sfdx plugins --core
+          sfdx force:auth:jwt:grant --instanceurl https://login.salesforce.com --clientid ${{ secrets.CONSUMER_KEY }} --jwtkeyfile assets/server.key --username ${{ secrets.SFDC_USERNAME }} --setdefaultdevhubusername
+          sfdx force:source:deploy --checkonly -x ./manifest/package.xml -u ${{ secrets.SFDC_USERNAME }} -l $TESTLEVEL
+  Deployment-On-Merge:
+    # This job will deploy when feature branch is merged to main branch
+    if: github.event_name == 'push'
+
+    runs-on: ubuntu-latest
+
+    # A sequence of tasks that will be executed as part of the job
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v2
+
+      # Print all of the GITHUB context in the build
+      - name: GITHUB CONTEXT
+        env:
+          GITHUB_CONTEXT: ${{ toJson(github) }}
+        run: echo "$GITHUB_CONTEXT"
+
+      # Decrypts Server Key
+      - name: Decrypt Server Key
+        run: |
+          openssl enc -aes-256-cbc -md sha256 -salt -d -in assets/server.key.enc -out assets/server.key -k ${{ secrets.ENCRYPTION_PASS }} -pbkdf2
+      # Installs Salesforce CLI
+      - name: Install Salesforce CLI
+        run: |
+          wget https://developer.salesforce.com/media/salesforce-cli/sfdx-linux-amd64.tar.xz
+          mkdir sfdx-cli
+          tar xJf sfdx-linux-amd64.tar.xz -C sfdx-cli --strip-components 1
+          ./sfdx-cli/install
+          
+      # Runs a Deployment script
+      - name: Deployment-run
+        run: |
+          export TESTLEVEL=RunLocalTests
+          echo "TEST LEVEL SELECTED: $TESTLEVEL"
+          export SFDX_AUTOUPDATE_DISABLE=false
+          export SFDX_USE_GENERIC_UNIX_KEYCHAIN=true
+          export SFDX_DOMAIN_RETRY=600
+          export SFDX_DISABLE_APP_HUB=true
+          export SFDX_LOG_LEVEL=DEBUG
+
+          sfdx --version
+          sfdx plugins --core
+          sfdx force:auth:jwt:grant --instanceurl https://login.salesforce.com --clientid ${{ secrets.CONSUMER_KEY }} --jwtkeyfile assets/server.key --username ${{ secrets.SFDC_USERNAME }} --setdefaultdevhubusername
+          sfdx force:source:deploy -x ./manifest/package.xml -u ${{ secrets.SFDC_USERNAME }} -l $TESTLEVEL
