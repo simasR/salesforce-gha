@@ -7,4 +7,4 @@ These are step by step guides to set up basic cicd GitHub Actions Workflow
 
 [Step by step guide for setup using Visual Studio Code](guides/Salesforce-gha-VSC.md)
 
-![Deploymeme](https://github.com/simasR/salesforce-gha/blob/main/images/AY3njVJ05.jpeg)
+![Deploymeme](https://github.com/simasR/salesforce-gha/blob/main/images/ciEngage.png)
