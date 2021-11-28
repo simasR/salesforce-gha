@@ -48,8 +48,7 @@ jobs:
           sfdx --version
           sfdx plugins --core
           sfdx force:auth:jwt:grant --instanceurl https://login.salesforce.com --clientid ${{ secrets.CONSUMER_KEY }} --jwtkeyfile assets/server.key --username ${{ secrets.SFDC_USERNAME }}
-          sfdx force:alias:list
-          sfdx force:alias:set DevHub=
+          sfdx force:config:set defaultdevhubusername=${{ secrets.SFDC_USERNAME }}
           sfdx force:source:deploy --checkonly -x ./manifest/package.xml -u ${{ secrets.SFDC_USERNAME }} -l $TESTLEVEL
   Deployment-On-Merge:
     # This job will deploy when feature branch is merged to main branch
@@ -94,6 +93,5 @@ jobs:
           sfdx --version
           sfdx plugins --core
           sfdx force:auth:jwt:grant --instanceurl https://login.salesforce.com --clientid ${{ secrets.CONSUMER_KEY }} --jwtkeyfile assets/server.key --username ${{ secrets.SFDC_USERNAME }}
-          sfdx force:alias:list
-          sfdx force:alias:set DevHub=
+          sfdx force:config:set defaultdevhubusername=${{ secrets.SFDC_USERNAME }}
           sfdx force:source:deploy -x ./manifest/package.xml -u ${{ secrets.SFDC_USERNAME }} -l $TESTLEVEL
