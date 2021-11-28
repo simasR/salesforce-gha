@@ -31,7 +31,8 @@ On your pc find a place where you want your projects to be stored.
   - click "Code"
   - next to a URL there is copy button, click it.
 - Go back to the Bash Terminal you have just opened.
-  - type in: git clone <paste that url>  (Don't include < and >)
+  - type in: git clone < paste that url >  (Don't include < and >)
+  
 Now you should have salesforce-gha(If thats how you named your repository) folder within your MyProjects folder.
 
 ### Create an sfdx project and Set up your Visual Studio Code (VSC)
