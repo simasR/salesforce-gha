@@ -1,5 +1,6 @@
 # Salesfoce CICD using GitHub Actions
 This guide will help you easily set up a pipe for your deployments to salesforce environment using GitHub Actions.
+
 In this example I will be using Visual Studio Code as a choice for code editor.
 
 ## Preparations
@@ -63,7 +64,7 @@ sfdx auth:web:login --setalias myDevOrg --instanceurl https://login.salesforce.c
 ```
   - this will pop up your browser, log in, click Allow.
 
-Now we have Your project connected to both Git and Salesforce!
+Now we have your project connected to both Git and Salesforce!
 
 ## Setting up Actions!
 
@@ -77,8 +78,11 @@ In salesforce:
 - Click New Connected App
 
 Connected App Name: "GitHub Actions"
+
 API Name: "GitHub_Actions" (will be auto populated)
+
 Contact Email: your email
+
 Check Enable OAuth settings
 - Callback URL: http://localhost:1717/OauthRedirect
 - Selected OAuth Scopes
@@ -92,7 +96,9 @@ Click Save
 In your repository root folder create a new folder and name it: assets
 
 Open up your bash terminal within VSC
+
 Make sure your terminal is in the root folder of your repository
+
 Run these commands:
 - openssl genrsa -des3 -passout pass:SomePassword -out assets/server.pass.key 2048
   - Save this password somewhere, we will need it later!
@@ -104,6 +110,7 @@ It will prompt you to fill in some information, Type in whatever you like, Chall
 Now you have a bunch of files, but you will need only two:
 - server.crt
 - server.key.enc
+
 **Delete the rest.**
 
 ### Add a digital certificate to your Connected App
@@ -130,12 +137,14 @@ Restrict access through connected app to your org
 - In Profiles section, click **Manage Profiles**
 - Select "System Administrator"
 - Click Save
+
 **DELETE server.crt file from assets/ folder you will not need it anymore**
 assets folder should only contain server.key.enc file
 
 ### Create a GitHub Actions workflow! Finally!
 
 In Visual Studio Code, Bash Terminal
+
 use these commands:
 ```
 git add .
@@ -162,7 +171,6 @@ In Salesforce go to Setup
 - Click arrow pointing down next to GitHub Actions Connected app
 - Click View
 - Under "Consumer Key" click copy
-
 - Open up your browser
 - Navigate to your repository
 - At the top menu, click "Settings" tab.
@@ -182,11 +190,12 @@ In Salesforce go to Setup
 In Visual Studio Code
 
 Create a new Apex Class
+
 In VSC Bash terminal run this command:
 ```
 sfdx force:apex:class:create -n DummyClass -d force-app/main/default/classes
 ```
-You will notice two new files in tour classes folder
+You will notice two new files in your classes folder
 
 In your VSC Bash Terminal:
 ```
