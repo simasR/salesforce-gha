@@ -59,18 +59,16 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
-      
+
       # Useful variables, these are just a few examples that I find useful when creating conditions for automated jobs!
       - name: Useful variables
         run: |
-          export SOURCE=${GITHUB_HEAD_REF}
-          echo Source branch - "$SOURCE"
-          export TARGET=${GITHUB_BASE_REF}
-          echo "Target branch - $TARGET"
+          echo "Source branch - ${GITHUB_HEAD_REF}"
+          echo "Target branch - ${GITHUB_BASE_REF}"
           readonly local last_commit_log=$(git log -1 --pretty=format:"%b")
-          echo "Last commit log - $last_commit_log"
+          echo $last_commit_log
           export FIRSTWORDOFCOMMIT=$(echo "$last_commit_log" | awk '{print $1}')
-          echo "Getting first word of commit from last commit message - $FIRSTWORDOFCOMMIT"
+          echo $FIRSTWORDOFCOMMIT
 
       # Print all of the GITHUB context in the build
       - name: GITHUB CONTEXT
