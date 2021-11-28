@@ -65,6 +65,8 @@ sfdx auth:web:login --setalias myDevOrg --instanceurl https://login.salesforce.c
 
 Now we have Your project connected to both Git and Salesforce!
 
+## Setting up Actions!
+
 ### Create a Connected App
 *This will be used to authorize deployments initiated with GitHub Actions*
 
@@ -174,3 +176,39 @@ In Salesforce go to Setup
 - Click "New repository secret"
   - Name: ENCRYPTION_PASS
   - Value: The password you made when creating server.key (SomePassword)
+
+## Test it out
+
+In Visual Studio Code
+
+Create a new Apex Class in force-app/main/default/classes
+
+Name it DummyClass.cls
+Contents:
+```
+public class DummyClass {
+    //An empy class, YEP.
+    }
+```
+save.
+
+In your VSC Bash Terminal:
+```
+git add force-app/main/default/classes/DummyClass.cls
+git commit -m "My first Class deployment using GitHub Actions!"
+git push origin main
+```
+
+In your Browser (Git repository)
+- Top menu click Actions
+- You will see "My first Class deployment using GitHub Actions!"
+  - click on it
+- Click Depyment-On-Merge
+- This is the output, result of your main.yml script
+
+In your Salesforce org
+
+- Go to Setup
+- In quickfind box type Apex Classes
+- Click Apex Classes
+- You will see a newly deployd DummyClass!
