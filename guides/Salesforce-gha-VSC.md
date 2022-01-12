@@ -1,4 +1,4 @@
-# Salesfoce CICD using GitHub Actions
+# Salesforce CICD using GitHub Actions
 This guide will help you easily set up a pipe for your deployments to salesforce environment using GitHub Actions.
 
 In this example I will be using Visual Studio Code as a choice for code editor.
