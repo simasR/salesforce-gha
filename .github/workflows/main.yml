@@ -70,8 +70,9 @@ jobs:
       - name: Branch that merged in
         run: |
           export LATESTLOG=$(git log -1 --pretty=%B)
+          echo "$LATESTLOG"
           export BRANCH=$(echo $LATESTLOG | awk -F '\\\\n' '{print $1}' |  awk -F '/' '{print $2}' | awk '{print $1}')
-          echo $BRANCH
+          echo "$BRANCH"
 
       # Decrypts Server Key
       - name: Decrypt Server Key
