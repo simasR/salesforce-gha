@@ -1,5 +1,5 @@
 public with sharing class DummyClass {
     public DummyClass() {
-        //Comment
+        //Comment here
     }
 }
