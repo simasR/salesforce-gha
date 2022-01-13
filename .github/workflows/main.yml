@@ -65,6 +65,13 @@ jobs:
         env:
           GITHUB_CONTEXT: ${{ toJson(github) }}
         run: echo "$GITHUB_CONTEXT"
+        
+      # Print branch name that was merged into main
+      - name: Branch that merged in
+        run: |
+          export LATESTLOG=$(git log -1 --pretty=%B)
+          export BRANCH=$(echo $LATESTLOG | awk -F '\\\\n' '{print $1}' |  awk -F '/' '{print $2}' | awk '{print $1}')
+          echo $BRANCH
 
       # Decrypts Server Key
       - name: Decrypt Server Key
